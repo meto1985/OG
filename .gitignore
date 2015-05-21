@@ -1,12 +1,76 @@
-*.class
+/*
+1933 - Og
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+Descripción
 
-# Package Files #
-*.jar
-*.war
-*.ear
+Og es un cavernícola con muchos hijos, y él quiere contarlos todos.
+Og cuenta a sus hijos con su mano izquierda y sus hijas con su mano derecha. 
+Sin embargo, Og es muy tonto, y no puede añadir los dos cargos, 
+por lo que le pidió que le escriba un programa que va a hacer la adición.
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+ESPECIFICACIÓN de entrada
+
+La entrada contiene varios casos de prueba. 
+Cada caso de prueba consiste en una sola línea que contiene dos enteros L y R ,
+separadas por un espacio único, lo que indica, respectivamente, 
+el número de hijos e hijas (1 <= L, R <= 5) . 
+El final de la entrada se indica por una línea que contiene sólo dos ceros, 
+separadas por un solo espacio.
+
+ESPECIFICACIÓN de salida
+
+Para cada caso de prueba en la entrada de imprimir una línea que contiene un único entero que indica cuántos hijos tiene Og.
+Example de entrada
+
+2 2 
+2 3 
+5 5 
+1 1 
+0 0
+Example de salida
+
+4 
+5 
+10 
+2
+ */
+package OG;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author mou
+ */
+public class og {
+
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+
+        
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        int validar1 = 0;
+        int validar2 = 0;
+        String cadena = "";
+        int cont = 0;
+
+        do {
+            cadena = leer.nextLine();
+            String tem[] = cadena.split(" ");
+            validar1 = Integer.parseInt(tem[0]);
+            validar2 = Integer.parseInt(tem[1]);
+            if (validar1 > 0 && validar2 > 0) {
+                al.add(Integer.parseInt(tem[0]) + Integer.parseInt(tem[1]));
+//                suma[cont] = (Integer.parseInt(tem[0]) + Integer.parseInt(tem[1]));
+                cont++;
+            }
+        } while ((validar1 > 0) && (validar2 > 0));
+
+        System.out.println(" ");
+        for (int i = 0; i < cont; i++) {
+            System.out.println(al.get(i));
+        }
+    }
+}
+
